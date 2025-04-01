@@ -21,8 +21,11 @@ def predict_next_words(model, context, top_n=5):
     return []
 
 def main():
-    model_path = "./corpus/en_US.twitter.trigrams.json"
+    model_path = "./corpus/en_US.clean.trigrams.min.json"
+    print("Loading n-gram model...")
     model = load_model(model_path)
+    print("Model loaded successfully!")
+    print("Enter a sentence (at least 2 words) to predict the next word(s):")
         
     try:
         while True:
@@ -43,7 +46,7 @@ def main():
             else:
                 print("No predictions available for this context.")
     except KeyboardInterrupt:
-        print("\exiting...")
+        print("exiting...")
 
 if __name__ == "__main__":
     main()
